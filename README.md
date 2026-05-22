@@ -147,7 +147,23 @@ CREATE DATABASE canadian_ed;
 
 -- Step 3: Run any query from the queries/ folder
 ```
+## Stored Procedures
 
+7 stored procedures built on top of the analytics queries, 
+demonstrating real hospital operations automation.
+
+| # | Procedure | Type | Description |
+|---|---|---|---|
+| 1 | `get_total_visits` | Basic | Returns total ED visit count |
+| 2 | `get_visits_by_province` | IN param | Filters visits and avg wait by province |
+| 3 | `get_avg_wait_by_type` | IN + OUT | Returns avg wait time by hospital type |
+| 4 | `ed_summary` | Variables | Calculates overall admission rate |
+| 5 | `rate_hospital` | IF/ELSE | Classifies hospital performance automatically |
+| 6 | `generate_shifts` | WHILE loop | Bulk inserts test shifts with input validation |
+| 7 | `hospital_performance_report` | Advanced | Full ED report with 5 metrics and auto ratings |
+
+**Concepts covered:** IN/OUT parameters, local variables, SELECT INTO, 
+nested IF/ELSE, WHILE loops, SIGNAL error handling, division-by-zero protection.
 ---
 
 ## Project Structure
@@ -156,7 +172,8 @@ CREATE DATABASE canadian_ed;
 canadian-ed-analysis/
 │
 ├── canadian_ed_mysql.sql              # Schema + all seed data (run this first)
-│
+|── stored_procedures.sql
+│   
 ├── queries/
 │   ├── 01_ctas_benchmark.sql          # CTAS benchmark breach analysis
 │   ├── 02_lwbs_rate.sql               # Left without being seen rate
